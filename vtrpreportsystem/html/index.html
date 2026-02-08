@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern Report System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="admin-notification" class="hidden">
+        <div class="notif-icon"><i class="fas fa-exclamation-circle"></i></div>
+        <div class="notif-content">
+            <span class="title">NOVÝ REPORT</span>
+            <span class="desc" id="notif-text">Hráč ID 1 poslal report.</span>
+        </div>
+    </div>
+
+    <div id="player-container" class="container hidden">
+        <div class="header">
+            <h1><i class="fas fa-headset"></i> Podpora</h1>
+            <p>Popíšte nám váš problém čo najdetailnejšie.</p>
+        </div>
+        
+        <div class="form-group">
+            <label>Kategória</label>
+            <select id="report-category">
+                <option value="bug">🐛 Nahlásiť Bug</option>
+                <option value="player">🚫 Nahlásiť Hráča</option>
+                <option value="other">❓ Iné / Otázka</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Popis problému</label>
+            <textarea id="report-text" placeholder="Napíšte sem detaily..."></textarea>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-cancel" onclick="closeUI()">Zavrieť</button>
+            <button class="btn-submit" onclick="submitReport()">Odoslať Report</button>
+        </div>
+    </div>
+
+    <div id="admin-container" class="admin-panel hidden">
+        <div class="sidebar">
+            <h2>ADMIN PANEL</h2>
+            <ul>
+                <li onclick="switchTab('active')" class="active-tab" id="tab-active"><i class="fas fa-list"></i> Aktívne Reporty</li>
+                <li onclick="switchTab('resolved')" id="tab-resolved"><i class="fas fa-check-circle"></i> Vyriešené</li>
+            </ul>
+            <button class="btn-close-admin" onclick="closeUI()">Zavrieť Panel</button>
+        </div>
+
+        <div class="main-content">
+            <div id="reports-list" class="reports-grid">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

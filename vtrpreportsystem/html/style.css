@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --dark-bg: rgba(20, 20, 25, 0.95);
+    --glass: rgba(255, 255, 255, 0.05);
+    --red: #ff7675;
+    --green: #00b894;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
+    user-select: none;
+}
+
+.hidden { display: none !important; }
+
+/* --- Admin Notifikácia --- */
+#admin-notification {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.4);
+    animation: slideDown 0.5s ease;
+    z-index: 9999;
+}
+
+.notif-icon { font-size: 24px; }
+.notif-content { display: flex; flex-direction: column; }
+.notif-content .title { font-weight: bold; font-size: 14px; }
+.notif-content .desc { font-size: 12px; opacity: 0.9; }
+
+/* --- Player Container --- */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    background: var(--dark-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--glass);
+}
+
+.header h1 { margin: 0; color: var(--secondary); font-size: 28px; }
+.header p { color: #aaa; font-size: 14px; margin-top: 5px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #ddd; }
+
+select, textarea {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid #444;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.3s;
+}
+
+textarea { height: 120px; resize: none; }
+select:focus, textarea:focus { border-color: var(--primary); }
+
+.buttons { display: flex; gap: 10px; margin-top: 20px; }
+button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-submit { background: var(--primary); color: white; }
+.btn-submit:hover { background: var(--secondary); }
+.btn-cancel { background: transparent; border: 1px solid #444; color: #aaa; }
+.btn-cancel:hover { border-color: white; color: white; }
+
+/* --- Admin Panel --- */
+.admin-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 600px;
+    background: #1e1e24;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+.sidebar {
+    width: 250px;
+    background: #15151a;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 { color: var(--primary); margin-top: 0; font-size: 22px; }
+.sidebar ul { list-style: none; padding: 0; margin-top: 40px; }
+.sidebar li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #888;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sidebar li:hover, .active-tab { background: rgba(108, 92, 231, 0.1); color: var(--secondary) !important; }
+.btn-close-admin { margin-top: auto; background: #2d2d35; color: white; }
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background: #1e1e24;
+}
+
+/* Report Cards */
+.report-card {
+    background: #25252e;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.card-id { font-weight: bold; color: var(--secondary); }
+.card-author { color: #ccc; font-size: 14px; }
+.card-body { color: #ddd; font-size: 14px; line-height: 1.5; }
+
+.card-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.action-btn {
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.btn-goto { background: #0984e3; }
+.btn-bring { background: #e17055; }
+.btn-resolve { background: var(--green); }
+
+/* Animácie */
+@keyframes slideDown { from { top: -100px; } to { top: 20px; } }
